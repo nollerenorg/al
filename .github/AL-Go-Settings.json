@@ -3,6 +3,6 @@
   "type": "PTE",
   "CurrentSchedule": "0 2 * * *",
   "NextMinorSchedule": "0 2 * * 6",
-  "NextMajorSchedule": "0 2 * * 0"
+  "NextMajorSchedule": "0 2 * * 0",
   "templateUrl": "https://github.com/microsoft/AL-Go-PTE@main"
 }
