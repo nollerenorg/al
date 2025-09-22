@@ -29,6 +29,18 @@ Insert example (customer):
   POST .../api/custom/integration/v1.0/customers
   {"number":"C-10000","displayName":"New Cust","currencyCode":"EUR"}
 
+### VAT Related Customer Fields
+Standard BC public APIs don't allow updating some VAT configuration fields directly. This custom API exposes additional mutable fields on `customers`:
+- vatBusPostingGroup ("VAT Bus. Posting Group")
+- genBusPostingGroup ("Gen. Bus. Posting Group")
+- taxAreaCode ("Tax Area Code")
+- taxLiable ("Tax Liable")
+- taxRegistrationNumber ("VAT Registration No.")
+
+Example update (PATCH customer):
+  PATCH .../api/custom/integration/v1.0/customers(<systemId>)
+  {"vatBusPostingGroup":"DOMESTIC","genBusPostingGroup":"RETAIL","taxAreaCode":"EU","taxLiable":true}
+
 ## Attachment Upload
 POST attachments with base64 content in field `attachmentContent`.
 

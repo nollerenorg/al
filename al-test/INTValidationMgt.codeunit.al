@@ -6,6 +6,9 @@ codeunit 55060 "INT Validation Mgt"
     procedure ValidateCustomer(var Cust: Record Customer; CorrId: Guid)
     var
         Currency: Record Currency;
+        VatBus: Record "VAT Business Posting Group";
+        GenBus: Record "Gen. Business Posting Group";
+        TaxArea: Record "Tax Area";
     begin
         if Cust."No." = '' then
             Fail('INT1001', CorrId, 'No.', 'Customer Number (No.) must not be blank');
@@ -13,6 +16,13 @@ codeunit 55060 "INT Validation Mgt"
             Fail('INT1002', CorrId, 'Name', 'Customer Name must not be blank');
         if (Cust."Currency Code" <> '') and (not Currency.Get(Cust."Currency Code")) then
             Fail('INT1003', CorrId, 'Currency Code', StrSubstNo('Currency Code %1 does not exist', Cust."Currency Code"));
+
+        if (Cust."VAT Bus. Posting Group" <> '') and (not VatBus.Get(Cust."VAT Bus. Posting Group")) then
+            Fail('INT1004', CorrId, 'VAT Bus. Posting Group', StrSubstNo('VAT Bus. Posting Group %1 does not exist', Cust."VAT Bus. Posting Group"));
+        if (Cust."Gen. Bus. Posting Group" <> '') and (not GenBus.Get(Cust."Gen. Bus. Posting Group")) then
+            Fail('INT1005', CorrId, 'Gen. Bus. Posting Group', StrSubstNo('Gen. Bus. Posting Group %1 does not exist', Cust."Gen. Bus. Posting Group"));
+        if (Cust."Tax Area Code" <> '') and (not TaxArea.Get(Cust."Tax Area Code")) then
+            Fail('INT1006', CorrId, 'Tax Area Code', StrSubstNo('Tax Area Code %1 does not exist', Cust."Tax Area Code"));
     end;
 
     procedure PrepareJournalLineForInsert(var GJL: Record "Gen. Journal Line"; CorrId: Guid)

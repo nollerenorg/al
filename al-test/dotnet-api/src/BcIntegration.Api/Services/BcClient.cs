@@ -388,6 +388,10 @@ public sealed class BcClient : IBcClient
             ["shipmentMethodId"] = r.ShipmentMethodId,
             ["creditLimit"] = r.CreditLimit,
             ["taxRegistrationNumber"] = r.TaxRegistrationNumber,
+            ["vatBusPostingGroup"] = r.VatBusPostingGroup,
+            ["genBusPostingGroup"] = r.GenBusPostingGroup,
+            ["taxAreaCode"] = r.TaxAreaCode,
+            ["taxLiable"] = r.TaxLiable,
             ["blocked"] = r.Blocked
         };
         // remove nulls
@@ -407,7 +411,12 @@ public sealed class BcClient : IBcClient
             el.TryGetProperty("city", out var city) ? city.GetString() : null,
             el.TryGetProperty("country", out var country) ? country.GetString() : null,
             el.TryGetProperty("balanceDue", out var balance) ? balance.GetDecimal() : null,
-            el.TryGetProperty("currencyCode", out var ccy) ? ccy.GetString() : null
+            el.TryGetProperty("currencyCode", out var ccy) ? ccy.GetString() : null,
+            el.TryGetProperty("vatBusPostingGroup", out var vbg) ? vbg.GetString() : null,
+            el.TryGetProperty("genBusPostingGroup", out var gbg) ? gbg.GetString() : null,
+            el.TryGetProperty("taxAreaCode", out var tac) ? tac.GetString() : null,
+            el.TryGetProperty("taxLiable", out var tl) ? tl.GetBoolean() : null,
+            el.TryGetProperty("taxRegistrationNumber", out var trn) ? trn.GetString() : null
         );
     }
 

@@ -36,6 +36,10 @@ public sealed class CustomerUpsertRequest
     public string? ShipmentMethodId { get; set; }
     public decimal? CreditLimit { get; set; }
     public string? TaxRegistrationNumber { get; set; }
+    public string? VatBusPostingGroup { get; set; }
+    public string? GenBusPostingGroup { get; set; }
+    public string? TaxAreaCode { get; set; }
+    public bool? TaxLiable { get; set; }
     public bool? Blocked { get; set; }
 }
 

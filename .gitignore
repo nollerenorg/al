@@ -22,3 +22,4 @@ cache_*
 .vscode/
 .vs
 *.ps1
+dotnet-api/*

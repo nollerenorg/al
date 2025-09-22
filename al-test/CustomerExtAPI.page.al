@@ -32,6 +32,11 @@ page 55020 "Customer Ext API"
             field(paymentTermsId; Rec."Payment Terms Code") { Caption = 'Payment Terms'; }
             field(shipmentMethodId; Rec."Shipment Method Code") { Caption = 'Shipment Method'; }
             field(paymentMethodId; Rec."Payment Method Code") { Caption = 'Payment Method'; }
+            // VAT related fields added for custom API (not available for change in standard API)
+            field(vatBusPostingGroup; Rec."VAT Bus. Posting Group") { Caption = 'VAT Bus. Posting Group'; }
+            field(genBusPostingGroup; Rec."Gen. Bus. Posting Group") { Caption = 'Gen. Bus. Posting Group'; }
+            field(taxAreaCode; Rec."Tax Area Code") { Caption = 'Tax Area Code'; }
+            field(taxLiable; Rec."Tax Liable") { Caption = 'Tax Liable'; }
             field(blocked; Rec.Blocked) { Caption = 'Blocked'; }
             field(lastModifiedDateTime; Rec.SystemModifiedAt) { Caption = 'Last Modified'; Editable = false; }
         }
